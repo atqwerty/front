@@ -1,55 +1,43 @@
 const initialState = {
-    pregnancies: '',
-    glucose: '',
-    bloodPressure: '',
-    skinThickness: '',
-    insulin: '',
-    bmi: '',
-    dpf: '',
-    age: '',
+    cost: '',
+    prePay: '',
+    prePayAmount: '',
+    time: '',
+    popositions: '',
+    amountOfPopositions: '',
 }
 
 const inputChange = (state = initialState, action) => {
     switch(action.type) {
-        case 'PREGNANCIES':
+        case 'COST':
             return {
                 ...state,
-                pregnancies: action.payload
+                cost: action.payload
             }
-        case 'GLUCOSE':
+        case 'PREPAY':
             return {
                 ...state,
-                glucose: action.payload
+                prePay: action.payload
             }
-        case 'BLOOD_PRESSURE':
+        case 'PREPAY_AMOUNT':
             return {
                 ...state,
-                bloodPressure: action.payload
+                prepayAmount: action.payload
             }
-        case 'SKIN_THICKNESS':
+        case 'TIME':
             return {
                 ...state,
-                skinThickness: action.payload
+                time: action.payload
             }
-        case 'INSULIN':
+        case 'POPOSITIONS':
             return {
                 ...state,
-                insulin: action.payload
+                popositions: action.payload
             }
-        case 'BMI':
+        case 'AMOUNT_OF_POSITIONS':
             return {
                 ...state,
-                bmi: action.payload
-            }
-        case 'DPF':
-            return {
-                ...state,
-                dpf: action.payload
-            }
-        case 'AGE':
-            return {
-                ...state,
-                age: action.payload
+                amountOfPositions: action.payload
             }
         default:
             return initialState

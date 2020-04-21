@@ -1,55 +1,41 @@
-export function pregnanciesChange(pregnancies) {
+export function costChange(cost) {
     return {
-        type: 'PREGNANCIES',
-        payload: pregnancies
+        type: 'COST',
+        payload: cost
     }
 }
 
-export function glucoseChange(glucose) {
+export function prePayChange(prePay) {
     return {
-        type: 'GLUCOSE',
-        payload: glucose
+        type: 'PREPAY',
+        payload: prePay
     }
 }
 
-export function bloodPressureChange(bloodPressure) {
+export function prePayAmountChange(prePayAmount) {
     return {
-        type: 'BLOOD_PRESSURE',
-        payload: bloodPressure
+        type: 'PREPAY_AMOUNT',
+        payload: prePayAmount
     }
 }
 
-export function skinThicknessChange(skinThickness) {
+export function timeChange(time) {
     return {
-        type: 'SKIN_THICKNESS',
-        payload: skinThickness
+        type: 'TIME',
+        payload: time
     }
 }
 
-export function insulinChange(insulin) {
+export function popositionsChange(popositions) {
     return {
-        type: 'INSULIN',
-        payload: insulin
+        type: 'POPOSITIONS',
+        payload: popositions
     }
 }
 
-export function BMIChange(BMI) {
+export function amountOfPositionsChange(amountOfPositions) {
     return {
-        type: 'BMI',
-        payload: BMI
-    }
-}
-
-export function DPFChange(DPF) {
-    return {
-        type: 'DPF',
-        payload: DPF
-    }
-}
-
-export function ageChange(age) {
-    return {
-        type: 'AGE',
-        payload: age
+        type: 'AMOUNT_OF_POSITIONS',
+        payload: amountOfPositions
     }
 }

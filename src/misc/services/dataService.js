@@ -1,25 +1,21 @@
 import axios from 'axios'
 
 const passData = (
-  pregnancies,
-  glucose,
-  bloodPressure,
-  skinThickness,
-  insulin,
-  bmi,
-  dpf,
-  age,
+  cost,
+  prePay,
+  prePayAmount,
+  time,
+  popositions,
+  amountOfPositions
 ) => {
 
     var data = JSON.stringify({
-        "Pregnancies": pregnancies,
-        "Glucose": glucose,
-        "BloodPressure": bloodPressure,
-        "SkinThickness": skinThickness,
-        "Insulin": insulin,
-        "BMI": bmi,
-        "DiabetesPedigreeFunction": dpf,
-        "Age": age
+        "ObshStZak": cost,
+        "NalPr": prePay,
+        "RazPr": prePayAmount,
+        "SrPost": time,
+        "Poz": popositions,
+        "KolPoz": amountOfPositions,
     })
 
     return axios({

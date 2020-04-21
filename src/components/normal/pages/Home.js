@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import HomeStyled from '../../styled/pages/HomeStyled'
 import Form from '../molecules/Form'
 import Input from '../atoms/Input'
@@ -6,43 +6,36 @@ import Text from '../atoms/Text'
 import { connect } from 'react-redux'
 import passData from '../../../misc/services/dataService'
 import {
-  pregnanciesChange,
-  glucoseChange,
-  bloodPressureChange,
-  skinThicknessChange,
-  insulinChange,
-  BMIChange,
-  DPFChange,
-  ageChange
+  costChange,
+  prePayChange,
+  prePayAmountChange,
+  timeChange,
+  popositionsChange,
+  amountOfPositionsChange
 } from '../../../redux/actions/inputActions'
 
 const Home = ({
-  pregnancies,
-  glucose,
-  bloodPressure,
-  skinThickness,
-  insulin,
-  bmi,
-  dpf,
-  age,
-  ...props
+  cost,
+  prePay,
+  prePayAmount,
+  time,
+  popositions,
+  amountOfPositions
 }) => {
   const [chance, setChance] = useState(0)
   console.log(chance)
 
   const handleSubmit = () => {
     passData(
-      pregnancies,
-      glucose,
-      bloodPressure,
-      skinThickness,
-      insulin,
-      bmi,
-      dpf,
-      age
+      cost,
+      prePay,
+      prePayAmount,
+      time,
+      popositions,
+      amountOfPositions
     )
       .then(response => {
-        setChance(Math.ceil(response['probability-of-diabetes'] * 100))
+        setChance(Math.ceil(response['outcome'] * 100))
       })
   }
 
@@ -52,43 +45,33 @@ const Home = ({
             <Form>
               <Input
                 type = 'text'
-                placeholder = 'Pregnancies'
-                callback = { value => pregnanciesChange(value)  }
+                placeholder = 'Стоимость закупки'
+                callback = { value => costChange(value)  }
               />
               <Input
                 type = 'text'
-                placeholder = 'Glucose'
-                callback = { value => glucoseChange(value)  }
+                placeholder = 'Наличие предоплаты'
+                callback = { value => prePayChange(value)  }
               />
               <Input
                 type = 'text'
-                placeholder = 'Blood Pressure'
-                callback = { value => bloodPressureChange(value)  }
+                placeholder = 'Размер предоплаты'
+                callback = { value => prePayAmountChange(value)  }
               />
               <Input
                 type = 'text'
-                placeholder = 'Skin Thickness'
-                callback = { value => skinThicknessChange(value)  }
+                placeholder = 'Срок поставки'
+                callback = { value => timeChange(value)  }
               />
               <Input
                 type = 'text'
-                placeholder = 'Insulin'
-                callback = { value => insulinChange(value)  }
+                placeholder = 'Попозиционно'
+                callback = { value => popositionsChange(value)  }
               />
               <Input
                 type = 'text'
-                placeholder = 'BMI'
-                callback = { value => BMIChange(value)  }
-              />
-              <Input
-                type = 'text'
-                placeholder = 'Diabetes P. function'
-                callback = { value => DPFChange(value)  }
-              />
-              <Input
-                type = 'text'
-                placeholder = 'Age'
-                callback = { value => ageChange(value)  }
+                placeholder = 'Количество позиций'
+                callback = { value => amountOfPositionsChange(value)  }
               />
             </Form>
           </div>
@@ -96,7 +79,7 @@ const Home = ({
             <Text
               size = 'large'
             >
-              Вероятность диабета: { chance }%...
+              Вероятность успешного тендера: { chance }%...
             </Text>
           </div>
           <div style={{ backgroundColor: '#F87596', gridArea: '2 / 2 / 2 / 2', display: 'flex' }}>
@@ -114,14 +97,12 @@ const Home = ({
 
 const mapStateToProps = (state) => {
   return {
-    pregnancies: state.inputChange.pregnancies,
-    glucose: state.inputChange.glucose,
-    bloodPressure: state.inputChange.bloodPressure,
-    skinThickness: state.inputChange.skinThickness,
-    insulin: state.inputChange.insulin,
-    bmi: state.inputChange.bmi,
-    dpf: state.inputChange.dpf,
-    age: state.inputChange.age,
+    cost: state.inputChange.cost,
+    prePay: state.inputChange.prePay,
+    prePayAmount: state.inputChange.prePayAmount,
+    time: state.inputChange.time,
+    popositions: state.inputChange.popositions,
+    amountOfPositions: state.inputChange.amountOfPositions,
   }
 }
 
