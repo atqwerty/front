@@ -35,7 +35,7 @@ const Home = ({
       amountOfPositions
     )
       .then(response => {
-        setChance(Math.ceil(response['outcome'] * 100))
+        setChance(Math.ceil(response['Outcome'] * 100))
       })
   }
 
