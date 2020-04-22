@@ -22,7 +22,7 @@ const inputChange = (state = initialState, action) => {
         case 'PREPAY_AMOUNT':
             return {
                 ...state,
-                prepayAmount: action.payload
+                prePayAmount: action.payload
             }
         case 'TIME':
             return {
