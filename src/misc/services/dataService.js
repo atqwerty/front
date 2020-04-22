@@ -27,7 +27,7 @@ const passData = (
         .then(response => {
             return axios({
                 method: 'GET',
-                url: 'http://localhost:9875/patient-prediction/' + response.data.patient_ID,
+                url: 'http://localhost:9875/patient-prediction/' + response.data.customer_ID,
             })
                 .then(response => response.data)
         })
